@@ -5,6 +5,9 @@ using KTvNiO.Models;
 using KTvNiO.Data;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
+using System.Linq;
+using System;
 
 namespace KTvNiO.Controllers
 {

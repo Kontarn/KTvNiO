@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using KTvNiO.Data;
 using KTvNiO.Models;
+using System.Threading.Tasks;
+using System.Linq;
+using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace KTvNiO.Data
 {
