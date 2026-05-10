@@ -1,21 +1,19 @@
 ```
-# Compiled and build artifacts
-*.js.map
-*.min.js
-*.bundle.js
-obj/
+# Build artifacts
 bin/
-Debug/
-Release/
+obj/
+*.dll
+*.exe
+*.pdb
+*.config
+*.csproj.user
 
 # Dependencies
-node_modules/
 packages/
+node_modules/
 
-# Logs and temp files
+# Logs
 *.log
-*.tmp
-*.temp
 
 # Environment
 *.exe
@@ -34,7 +32,7 @@ venv/
 .venv/
 .env
 .env.local
-.env.*
+*.env.*
 
 # Build directories
 dist/
@@ -48,7 +46,9 @@ htmlcov/
 *.coverage
 
 # Editors
+.vs/
 .vscode/
+*.userprefs
 .idea/
 
 *.swp
@@ -62,7 +62,13 @@ htmlcov/
 # System files
 .DS_Store
 Thumbs.db
+.DS_Store
 
+# ASP.NET Core
+*.db
+*.db-journal
+appsettings*.json
+Properties/PublishProfiles/
 # Build outputs
 dist/
 build/
