@@ -1,37 +1,43 @@
 ```
-# Build artifacts
-bin/
-obj/
-*.dll
+# Compiled and build artifacts
 *.exe
-*.pdb
-*.config
-*.csproj.user
+*.dll
+*.so
+*.o
+*.obj
+*.out
+*.class
+*.pyc
+__pycache__/
 
 # Dependencies
-packages/
 node_modules/
-
-# Logs
-*.log
-
-# Environment
+venv/
+.venv/
 .env
 .env.local
 *.env.*
 
+# Build directories
+dist/
+build/
+target/
+.gradle/
+.mypy_cache/
+.pytest_cache/
+coverage/
+htmlcov/
+*.coverage
+
 # Editors
 .vscode/
 .idea/
-*.userprefs
-*.suo
-*.user
-*.cache
-*.vcxproj.*
-Thumbs.db
-.DS_Store
-
 # OS generated files
+*.swp
+*.swo
+*.tmp
+
+# System files
 .DS_Store
 .DS_Store?
 ._*
@@ -39,4 +45,30 @@ Thumbs.db
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+*.log
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
 ```
