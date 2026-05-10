@@ -1,0 +1,61 @@
+@using KTvNiO.Models
+@model List<TestResult>
+
+@{
+    ViewData["Title"] = "История тестирований";
+}
+
+<h2>Мои результаты тестирований</h2>
+<hr />
+
+@if (Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Курс</th>
+                <th>Дата</th>
+                <th>Правильных ответов</th>
+                <th>Результат</th>
+                <th>Оценка</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model)
+            {
+                string GetGrade(double score)
+                {
+                    if (score >= 90) return "Отлично";
+                    if (score >= 75) return "Хорошо";
+                    if (score >= 60) return "Удовлетворительно";
+                    return "Неудовлетворительно";
+                }
+                
+                string GetGradeClass(double score)
+                {
+                    if (score >= 75) return "text-success";
+                    if (score >= 60) return "text-warning";
+                    return "text-danger";
+                }
+                
+                <tr>
+                    <td>@result.Course.Title</td>
+                    <td>@result.TakenAt.ToShortDateString() @result.TakenAt.ToShortTimeString()</td>
+                    <td>@result.CorrectAnswers из @result.TotalQuestions</td>
+                    <td><span class="@GetGradeClass(result.Score)">@result.Score.ToString("F1")%</span></td>
+                    <td><span class="@GetGradeClass(result.Score)">@GetGrade(result.Score)</span></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        <p>Вы еще не проходили ни одного тестирования.</p>
+    </div>
+}
+
+<div>
+    <a asp-controller="Courses" asp-action="Index" class="btn btn-primary">Вернуться к курсам</a>
+</div>

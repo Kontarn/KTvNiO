@@ -1,0 +1,55 @@
+@using KTvNiO.Models
+@model List<TestQuestion>
+
+@{
+    ViewData["Title"] = "Тестирование: " + ViewBag.Course.Title;
+}
+
+<h2>Тестирование по курсу "@ViewBag.Course.Title"</h2>
+<hr />
+
+<form asp-controller="Tests" asp-action="SubmitTest" method="post">
+    <input type="hidden" name="courseId" value="@ViewBag.Course.Id" />
+    
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        var question = Model[i];
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Вопрос @(i + 1)</h5>
+            </div>
+            <div class="card-body">
+                <p class="lead">@question.QuestionText</p>
+                
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="answers[@question.Id]" value="A" id="q@(question.Id)_a">
+                    <label class="form-check-label" for="q@(question.Id)_a">@question.OptionA</label>
+                </div>
+                
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="answers[@question.Id]" value="B" id="q@(question.Id)_b">
+                    <label class="form-check-label" for="q@(question.Id)_b">@question.OptionB</label>
+                </div>
+                
+                @if (!string.IsNullOrEmpty(question.OptionC))
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answers[@question.Id]" value="C" id="q@(question.Id)_c">
+                        <label class="form-check-label" for="q@(question.Id)_c">@question.OptionC</label>
+                    </div>
+                }
+                
+                @if (!string.IsNullOrEmpty(question.OptionD))
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answers[@question.Id]" value="D" id="q@(question.Id)_d">
+                        <label class="form-check-label" for="q@(question.Id)_d">@question.OptionD</label>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    
+    <button type="submit" class="btn btn-primary btn-lg">Завершить тестирование</button>
+    <a asp-controller="Courses" asp-action="Learn" asp-route-id="@ViewBag.Course.Id" class="btn btn-secondary btn-lg">Вернуться к материалу</a>
+</form>
