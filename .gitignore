@@ -1,1 +1,67 @@
-Nothing should be ignored based on the provided file changes. The only modified file is 'KTvNiO/Models/Course.cs', which is a source code file and should not be added to .gitignore.
+```
+# Compiled and build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+*.class
+*.pyc
+__pycache__/
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+.env
+.env.local
+.env.*
+
+# Build directories
+dist/
+build/
+target/
+coverage/
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.gradle/
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+```
