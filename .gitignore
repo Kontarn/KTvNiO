@@ -1,0 +1,42 @@
+```
+# Build results
+[KTVNIO]*/bin/
+[KTVNIO]*/obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.csproj.user
+*.vbproj.user
+*.fsproj.user
+
+# Log files
+*.log
+
+# Environment specific settings
+.env
+.env.local
+*.env.*
+
+# IDE specific files
+.vs/
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Dependency and package directories
+node_modules/
+packages/
+
+# Test results
+TestResults/
+
+# NuGet packages
+*.nupkg
+[Nn]uget.exE
+[Nn]uget.conF
+```

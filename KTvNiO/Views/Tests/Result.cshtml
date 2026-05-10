@@ -1,0 +1,56 @@
+@using KTvNiO.Models
+@model TestResult
+
+@{
+    ViewData["Title"] = "Результат тестирования";
+    
+    string GetGrade(double score)
+    {
+        if (score >= 90) return "Отлично";
+        if (score >= 75) return "Хорошо";
+        if (score >= 60) return "Удовлетворительно";
+        return "Неудовлетворительно";
+    }
+    
+    string GetGradeClass(double score)
+    {
+        if (score >= 75) return "text-success";
+        if (score >= 60) return "text-warning";
+        return "text-danger";
+    }
+}
+
+<h2>Результат тестирования</h2>
+<hr />
+
+<div class="card">
+    <div class="card-body text-center">
+        <h3 class="card-title">Курс: @Model.Course.Title</h3>
+        <p class="card-text">
+            <strong>Дата прохождения:</strong> @Model.TakenAt.ToShortDateString() @Model.TakenAt.ToShortTimeString()<br/>
+            <strong>Правильных ответов:</strong> @Model.CorrectAnswers из @Model.TotalQuestions<br/>
+            <strong>Результат:</strong> <span class="@GetGradeClass(Model.Score)"><strong>@Model.Score.ToString("F1")%</strong></span><br/>
+            <strong>Оценка:</strong> <span class="@GetGradeClass(Model.Score)"><strong>@GetGrade(Model.Score)</strong></span>
+        </p>
+        
+        @if (Model.Score >= 60)
+        {
+            <div class="alert alert-success">
+                <h4>Поздравляем!</h4>
+                <p>Вы успешно прошли курс и тестирование.</p>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                <h4>Рекомендация</h4>
+                <p>Вам стоит повторить учебный материал и пройти тестирование еще раз.</p>
+            </div>
+        }
+        
+        <div class="mt-4">
+            <a asp-controller="Courses" asp-action="Index" class="btn btn-primary">Вернуться к курсам</a>
+            <a asp-controller="Tests" asp-action="History" class="btn btn-secondary">Мои результаты</a>
+        </div>
+    </div>
+</div>

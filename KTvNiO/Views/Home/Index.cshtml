@@ -1,0 +1,56 @@
+@using KTvNiO.Models
+@model List<Course>
+
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Система Дистанционного Обучения</h1>
+    <p class="lead">Изучайте решение квадратных уравнений онлайн</p>
+</div>
+
+<hr />
+
+<h2>Доступные курсы</h2>
+<div class="row">
+    @foreach (var course in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@course.Title</h5>
+                    <p class="card-text">@course.Description</p>
+                </div>
+                <div class="card-footer">
+                    <a asp-controller="Courses" asp-action="Details" asp-route-id="@course.Id" class="btn btn-primary">Подробнее</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <form asp-controller="Courses" asp-action="Enroll" method="post" class="d-inline">
+                            <input type="hidden" name="courseId" value="@course.Id" />
+                            <button type="submit" class="btn btn-success">Записаться на курс</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-secondary">Войти для записи</a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="alert alert-info mt-4">
+        <h4>Демо-доступ</h4>
+        <p>Для демонстрации системы используйте следующие учетные данные:</p>
+        <ul>
+            <li><strong>Студент:</strong> student1@test.com / password123</li>
+            <li><strong>Преподаватель:</strong> teacher1@test.com / password123</li>
+            <li><strong>Разработчик:</strong> developer1@test.com / password123</li>
+            <li><strong>Поддержка:</strong> support1@test.com / password123</li>
+        </ul>
+    </div>
+}
