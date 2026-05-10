@@ -1,42 +1,40 @@
 ```
-# Build artifacts
-bin/
+# Compiled and build artifacts
+*.js.map
+*.min.js
+*.bundle.js
 obj/
-*.dll
-*.exe
-*.pdb
-*.config
-*.csproj.user
+bin/
+Debug/
+Release/
 
 # Dependencies
-packages/
 node_modules/
+packages/
 
-# Logs
+# Logs and temp files
 *.log
+*.tmp
+*.temp
 
 # Environment
 .env
 .env.local
-*.env.*
+.env.*
 
 # Editors
 .vscode/
 .idea/
-*.userprefs
-*.suo
-*.user
-*.cache
-*.vcxproj.*
-Thumbs.db
-.DS_Store
+*.swp
+*.swo
 
 # OS generated files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
+
+# Build outputs
+dist/
+build/
+target/
+out/
 ```
