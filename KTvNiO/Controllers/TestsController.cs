@@ -4,6 +4,10 @@ using KTvNiO.Models;
 using KTvNiO.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace KTvNiO.Controllers
 {

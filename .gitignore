@@ -1,1 +1,102 @@
-Nothing should be ignored based on the provided file changes. The only modified file is 'KTvNiO/Models/Course.cs', which is a source code file and should not be added to .gitignore.
+```
+# Build artifacts
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.config
+*.csproj.user
+
+# Dependencies
+packages/
+node_modules/
+
+# Logs
+*.log
+
+# Environment
+*.exe
+*.dll
+*.so
+*.o
+*.obj
+*.out
+*.class
+*.pyc
+__pycache__/
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+.env
+.env.local
+*.env.*
+
+# Build directories
+dist/
+build/
+target/
+.gradle/
+.mypy_cache/
+.pytest_cache/
+coverage/
+htmlcov/
+*.coverage
+
+# Editors
+.vs/
+.vscode/
+*.userprefs
+.idea/
+
+*.swp
+*.swo
+
+# OS generated files
+*.swp
+*.swo
+*.tmp
+
+# System files
+.DS_Store
+Thumbs.db
+.DS_Store
+
+# ASP.NET Core
+*.db
+*.db-journal
+appsettings*.json
+Properties/PublishProfiles/
+# Build outputs
+dist/
+build/
+target/
+out/
+*.log
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+```
