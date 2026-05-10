@@ -6,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Threading.Tasks;
+using System.Linq;
+using System;
 
 namespace KTvNiO.Controllers
 {
