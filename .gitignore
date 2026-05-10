@@ -3,6 +3,13 @@
 bin/
 obj/
 *.dll
+*.so
+*.a
+
+# Build artifacts
+bin/
+obj/
+*.dll
 *.exe
 *.pdb
 *.config
@@ -12,25 +19,88 @@ obj/
 # Dependencies
 packages/
 node_modules/
-bower_components/
 
 # Logs
 *.log
-logs/
 
-# Environment specific
+*.out
+*.class
+*.pyc
+__pycache__/
+
+# Dependencies
+packages/
+node_modules/
+venv/
+.venv/
 .env
 .env.local
-*.user
+*.env.*
 
-# OS generated files
-.DS_Store
-Thumbs.db
+# Build directories
+dist/
+build/
+target/
+.gradle/
+.mypy_cache/
+.pytest_cache/
+coverage/
+htmlcov/
+*.coverage
 
-# IDE specific
+# Editors
 .vs/
 .vscode/
+*.userprefs
 .idea/
-*.suo
-*.userosscache
+
+*.swp
+*.swo
+
+# OS generated files
+*.swp
+*.swo
+*.tmp
+
+# System files
+.DS_Store
+Thumbs.db
+.DS_Store
+
+# ASP.NET Core
+*.db
+*.db-journal
+appsettings*.json
+Properties/PublishProfiles/
+# Build outputs
+dist/
+build/
+target/
+out/
+*.log
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+
 ```
