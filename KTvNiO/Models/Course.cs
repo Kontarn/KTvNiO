@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace KTvNiO.Models
 {
@@ -18,5 +19,18 @@ namespace KTvNiO.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         
         public bool IsPublished { get; set; } = true;
+        
+        // Дополнительные свойства
+        public int? DurationHours { get; set; }
+        
+        // Навигационные свойства
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
+        public virtual ICollection<Test> Tests { get; set; }
+        
+        public Course()
+        {
+            Enrollments = new List<Enrollment>();
+            Tests = new List<Test>();
+        }
     }
 }
