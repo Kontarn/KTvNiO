@@ -1,0 +1,48 @@
+@using KTvNiO.Models
+@model Course
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <p class="lead">@Model.Description</p>
+        
+        @if (User.Identity.IsAuthenticated)
+        {
+            <form asp-controller="Courses" asp-action="Enroll" method="post" class="mb-3">
+                <input type="hidden" name="courseId" value="@Model.Id" />
+                <button type="submit" class="btn btn-success btn-lg">Записаться на курс</button>
+            </form>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg">Войти для записи</a>
+        }
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Информация о курсе</h5>
+                <p class="card-text">
+                    <strong>Дата создания:</strong> @Model.CreatedAt.ToShortDateString()<br/>
+                    <strong>Статус:</strong> @(Model.IsPublished ? "Опубликован" : "Скрыт")
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    <h4>Программа курса</h4>
+    <div class="card">
+        <div class="card-body">
+            @Html.Raw(Model.Content)
+        </div>
+    </div>
+</div>

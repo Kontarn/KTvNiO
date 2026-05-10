@@ -1,0 +1,65 @@
+@using KTvNiO.Models
+@model Course
+
+@{
+    ViewData["Title"] = "Изучение: " + Model.Title;
+}
+
+<h2>@Model.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Учебный материал</h4>
+            </div>
+            <div class="card-body">
+                @Html.Raw(Model.Content)
+            </div>
+        </div>
+        
+        @if (ViewBag.Enrollment != null && !ViewBag.Enrollment.IsCompleted)
+        {
+            <form asp-controller="Courses" asp-action="CompleteCourse" method="post" class="mb-3">
+                <input type="hidden" name="courseId" value="@Model.Id" />
+                <button type="submit" class="btn btn-primary btn-lg">Я изучил материал, перейти к тесту</button>
+            </form>
+        }
+        else if (ViewBag.Enrollment?.IsCompleted == true)
+        {
+            <a asp-controller="Tests" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-primary btn-lg">Пройти тестирование</a>
+        }
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Ваш прогресс</h5>
+                @if (ViewBag.Enrollment != null)
+                {
+                    <p class="card-text">
+                        <strong>Статус:</strong> 
+                        @(ViewBag.Enrollment.IsCompleted ? "Завершено" : "В процессе")<br/>
+                        <strong>Дата начала:</strong> @ViewBag.Enrollment.EnrolledAt.ToShortDateString()<br/>
+                        @if (ViewBag.Enrollment.CompletedAt.HasValue)
+                        {
+                            <text><strong>Дата завершения:</strong> @ViewBag.Enrollment.CompletedAt.Value.ToShortDateString()</text>
+                        }
+                    </p>
+                }
+                else
+                {
+                    <p class="card-text text-muted">Вы не записаны на этот курс</p>
+                }
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Навигация</h5>
+                <a asp-controller="Courses" asp-action="Index" class="btn btn-secondary btn-sm">Все курсы</a>
+            </div>
+        </div>
+    </div>
+</div>
