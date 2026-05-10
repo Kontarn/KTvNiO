@@ -1,18 +1,4 @@
 ```
-# Environment
-.env
-.env.local
-*.env.*
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-
-# Editors
-.vscode/
-.idea/
-
 # Dependencies
 node_modules/
 venv/
@@ -20,34 +6,56 @@ venv/
 __pycache__/
 .mypy_cache/
 .pytest_cache/
-.julia/
-zig*/
-target/
-.gradle/
+packages/
+bin/
+obj/
 
-# Build artifacts
+# Build outputs
 dist/
 build/
-*.pyc
-*.class
-*.o
+release/
+Debug/
+Release/
+x64/
+x86/
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Compiled files
 *.exe
 *.dll
 *.so
-*.a
+*.dylib
+*.class
+*.o
 *.obj
 *.out
-
-# System files
-.DS_Store
-Thumbs.db
+*.pdb
+*.ilk
 
 # Coverage
 coverage/
 htmlcov/
 .coverage
 
-# Compressed files
+# Compressed
 *.zip
 *.gz
 *.tar
