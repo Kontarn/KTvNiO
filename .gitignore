@@ -6,6 +6,23 @@
 *.dll
 *.so
 *.a
+
+# Build artifacts
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.config
+*.csproj.user
+
+# Dependencies
+packages/
+node_modules/
+
+# Logs
+*.log
+
 *.out
 *.class
 *.pyc
@@ -17,29 +34,49 @@ venv/
 .venv/
 .env
 .env.local
-.env.*
+*.env.*
 
 # Build directories
 dist/
 build/
 target/
-coverage/
-htmlcov/
+.gradle/
 .mypy_cache/
 .pytest_cache/
-.gradle/
+coverage/
+htmlcov/
+*.coverage
 
-# Editors and IDEs
+# Editors
+.vs/
 .vscode/
+*.userprefs
 .idea/
+
 *.swp
 *.swo
+
+# OS generated files
+*.swp
+*.swo
+*.tmp
 
 # System files
 .DS_Store
 Thumbs.db
+.DS_Store
+
+# ASP.NET Core
+*.db
+*.db-journal
+appsettings*.json
+Properties/PublishProfiles/
+# Build outputs
+dist/
+build/
+target/
+out/
 *.log
-*.tmp
 
 # Compressed files
 *.zip
@@ -64,4 +101,5 @@ Thumbs.db
 *.tar.bz2
 *.tar.xz
 *.tar.zst
+
 ```
